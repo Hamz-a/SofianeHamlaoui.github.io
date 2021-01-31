@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Linux Commands : 101 Table of Contents    No. Topic    1 User information   2 File and directory commands   3 File permissions   4 Networking   5 Installing packages   6 Disk usage   7 System and Hard">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Commands">
+<meta property="og:url" content="http://blog.sofianehamlaoui.fr/2021/01/31/linux/index.html">
+<meta property="og:site_name" content="Sofiane Hamlaoui&#39;s Blog">
+<meta property="og:description" content="Linux Commands : 101 Table of Contents    No. Topic    1 User information   2 File and directory commands   3 File permissions   4 Networking   5 Installing packages   6 Disk usage   7 System and Hard">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://up.sofianehamlaoui.fr/lc_101.png">
+<meta property="og:image" content="http://up.sofianehamlaoui.fr/perms.png">
+<meta property="article:published_time" content="2021-01-31T05:47:18.000Z">
+<meta property="article:modified_time" content="2021-01-31T05:50:18.861Z">
+<meta property="article:author" content="Sofiane Hamlaoui">
+<meta property="article:tag" content="SofianeHamlaoui">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://up.sofianehamlaoui.fr/lc_101.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Linux Commands</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/Projects/">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/01/31/CheatSheet/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.sofianehamlaoui.fr/2021/01/31/linux/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&text=Linux Commands"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&title=Linux Commands"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&is_video=false&description=Linux Commands"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux Commands&body=Check out this article: http://blog.sofianehamlaoui.fr/2021/01/31/linux/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&title=Linux Commands"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&title=Linux Commands"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&title=Linux Commands"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&title=Linux Commands"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&name=Linux Commands&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&t=Linux Commands"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-Commands-101"><span class="toc-number">1.</span> <span class="toc-text">Linux Commands : 101</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Table-of-Contents"><span class="toc-number">1.0.1.</span> <span class="toc-text">Table of Contents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#User-Information"><span class="toc-number">1.0.2.</span> <span class="toc-text">User Information</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File-and-directory-commands"><span class="toc-number">1.0.3.</span> <span class="toc-text">File and directory commands</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File-permissions"><span class="toc-number">1.0.4.</span> <span class="toc-text">File permissions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Networking"><span class="toc-number">1.0.5.</span> <span class="toc-text">Networking</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installing-packages"><span class="toc-number">1.0.6.</span> <span class="toc-text">Installing packages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disk-usage"><span class="toc-number">1.0.7.</span> <span class="toc-text">Disk usage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System-and-Hardware-information"><span class="toc-number">1.0.8.</span> <span class="toc-text">System and Hardware information</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Search-Files"><span class="toc-number">1.0.9.</span> <span class="toc-text">Search Files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH"><span class="toc-number">1.0.10.</span> <span class="toc-text">SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vi-Vim-commands"><span class="toc-number">1.0.11.</span> <span class="toc-text">Vi&#x2F;Vim-commands</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Start-with-Vi-Editor"><span class="toc-number">1.0.11.1.</span> <span class="toc-text">1. Start with Vi Editor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Cursor-movement"><span class="toc-number">1.0.11.2.</span> <span class="toc-text">2. Cursor movement</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Move-cursor"><span class="toc-number">1.0.11.2.1.</span> <span class="toc-text">Move cursor</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Jump-one-word"><span class="toc-number">1.0.11.2.2.</span> <span class="toc-text">Jump one word</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Jump-to-start-or-end-of-a-line-or-next-line"><span class="toc-number">1.0.11.2.3.</span> <span class="toc-text">Jump to start or end of a line or next line</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Move-sides"><span class="toc-number">1.0.11.2.4.</span> <span class="toc-text">Move sides</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Paging-and-Scrolling"><span class="toc-number">1.0.11.2.5.</span> <span class="toc-text">Paging and Scrolling</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Inserting-Text"><span class="toc-number">1.0.11.2.6.</span> <span class="toc-text">Inserting Text</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Insert"><span class="toc-number">1.0.11.2.6.1.</span> <span class="toc-text">Insert</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Append"><span class="toc-number">1.0.11.2.6.2.</span> <span class="toc-text">Append</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Open-a-line"><span class="toc-number">1.0.11.2.6.3.</span> <span class="toc-text">Open a line</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Editing-Text"><span class="toc-number">1.0.11.2.7.</span> <span class="toc-text">Editing Text</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Deleting-Text"><span class="toc-number">1.0.11.2.8.</span> <span class="toc-text">Deleting Text</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Cut-Copy-amp-Paste"><span class="toc-number">1.0.11.2.9.</span> <span class="toc-text">Cut, Copy &amp; Paste</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Exiting"><span class="toc-number">1.0.11.2.10.</span> <span class="toc-text">Exiting</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Linux Commands
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Sofiane Hamlaoui</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-01-31T05:47:18.000Z" itemprop="datePublished">2021-01-31</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Linux-Commands-101"><a href="#Linux-Commands-101" class="headerlink" title="Linux Commands : 101"></a>Linux Commands : 101</h1><p><img src="http://up.sofianehamlaoui.fr/lc_101.png"></p>
+<h3 id="Table-of-Contents"><a href="#Table-of-Contents" class="headerlink" title="Table of Contents"></a>Table of Contents</h3><hr>
+<table>
+<thead>
+<tr>
+<th>No.</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a href="#user-information"><strong>User information</strong></a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="#file-and-directory-commands"><strong>File and directory commands</strong></a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="#file-permissions"><strong>File permissions</strong></a></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="#networking"><strong>Networking</strong></a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="#installing-packages"><strong>Installing packages</strong></a></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="#disk-usage"><strong>Disk usage</strong></a></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="#system-and-hardware-information"><strong>System and Hardware information</strong></a></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="#search-files"><strong>Search Files</strong></a></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="#ssh"><strong>SSH</strong></a></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="#vi/vim-commands"><strong>Vi/Vim-commands</strong></a></td>
+</tr>
+</tbody></table>
+<h3 id="User-Information"><a href="#User-Information" class="headerlink" title="User Information"></a>User Information</h3><ol>
+<li><p><strong>who</strong> It is used to get information about currently logged in user on to system. If you don’t provide any option or arguments, the command displays the following information for each logged-in user.</p>
+<ol>
+<li>Login name of the user</li>
+<li>User terminal</li>
+<li>Date &amp; Time of login</li>
+<li>Remote host name of the user</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ who</span><br><span class="line">sudheer :0 2019-08-04 01:21 (:0)</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>whoami:</strong> It display the system’s username</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ whoami</span><br><span class="line">sudheer</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>id:</strong> It display the user identification(the real and effective user and group IDs) information</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ id</span><br><span class="line">uid=1000(sj) gid=1000(sj) groups=1000(sj),4(adm),24(cdrom),27(sudo),30(dip),46(plugdev),120(lpadmin),131(lxd),132(sambashare)</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>groups:</strong> This command is used to display all the groups for which the user belongs to.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ group</span><br><span class="line">sj: sj, adm, cdrom, sudo, dip, plugdev, lpadmin, lxd, sambashare</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>finger:</strong>  Used to check the information of any currently logged in users. i.e, It displays users login time, tty (name), idle time, home directory, shell name etc.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ finger</span><br><span class="line">Login     Name       Tty      Idle  Login Time   Office     Office Phone</span><br><span class="line">sj        sj        *:0             Aug 28 01:27 (:0)</span><br></pre></td></tr></table></figure>
+<p>This may not be available by default in many linux machines. In this case, you need to install it manually.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install finger</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>users:</strong> Displays usernames of all users currently logged on the system.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ users</span><br><span class="line">sj</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>grep:</strong> It  is a powerful pattern searching tool to find information about a specific user from the system accounts file: /etc/passwd.</p>
+<pre><code><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ grep -i sj /etc/passwd</span><br><span class="line"><span class="function">sj:<span class="title">x</span>:1000:1000:<span class="title">sj</span>,,,:/<span class="title">home</span>/<span class="title">sj</span>:/<span class="title">bin</span>/<span class="title">bash</span></span></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p><strong>W Command:</strong> It(W) is a command-line utility that displays information about currently logged in users and what each user is doing.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">w [OPTIONS] [USER]</span><br><span class="line"></span><br><span class="line">Example:</span><br><span class="line">w</span><br><span class="line"> 18:45:04 up  2:09,  1 user,  load average: 0.09, 0.07, 0.02</span><br><span class="line">USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT</span><br><span class="line">sj       :0       :0               01:27   ?xdm?   1:14   0.01s /usr/lib/gdm3/g</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>last or lastb:</strong> Displays a list of last logged in users on the system. You can pass user names to display their login and hostname details.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">last [options] [username...] [tty...]</span><br><span class="line"></span><br><span class="line">Example:</span><br><span class="line"></span><br><span class="line">last</span><br><span class="line">sj       :0           :0               Fri Aug 28 01:27    gone - no <span class="built_in">logout</span></span><br><span class="line">reboot   system boot  5.4.0-29-generic Fri Aug 28 01:27   still running</span><br><span class="line">sj       :0           :0               Wed Jul 29 11:46 - crash (29+13:40)</span><br><span class="line">reboot   system boot  5.4.0-29-generic Wed Jul 29 11:45   still running</span><br><span class="line">sj       :0           :0               Thu May 14 21:04 - crash (75+14:41)</span><br><span class="line">reboot   system boot  5.4.0-29-generic Thu May 14 21:03   still running</span><br><span class="line"></span><br><span class="line">wtmp begins Thu May 14 21:03:56 2020</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>lastlog:</strong> The <code>lastlog</code> command is used to find the details of a recent login of all users or of a given user.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ lastlog</span><br><span class="line"></span><br><span class="line">Username         Port     From             Latest</span><br><span class="line">root                                       **Never logged <span class="keyword">in</span>**</span><br><span class="line">daemon                                     **Never logged <span class="keyword">in</span>**</span><br><span class="line">bin                                        **Never logged <span class="keyword">in</span>**</span><br><span class="line">sys                                        **Never logged <span class="keyword">in</span>**</span><br><span class="line">sync                                       **Never logged <span class="keyword">in</span>**</span><br><span class="line">games                                      **Never logged <span class="keyword">in</span>**</span><br><span class="line">man                                        **Never logged <span class="keyword">in</span>**</span><br><span class="line">lp                                         **Never logged <span class="keyword">in</span>**</span><br><span class="line">mail                                       **Never logged <span class="keyword">in</span>**</span><br><span class="line">news                                       **Never logged <span class="keyword">in</span>**</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>   <strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<h3 id="File-and-directory-commands"><a href="#File-and-directory-commands" class="headerlink" title="File and directory commands"></a>File and directory commands</h3><ol>
+<li><p><strong>pwd</strong> The pwd(Present Working Directory) command is used to print the name of the present/current working directory starting from the root.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">pwd</span></span><br><span class="line">/home/sj/Desktop/Linux</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>mkdir</strong> The mkdir(make directory) command allows users to create directories or folders.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir ubuntu</span><br><span class="line">$ ls</span><br><span class="line">ubuntu</span><br></pre></td></tr></table></figure>
+<p>The option ‘-p’ is used to create multiple directories or parent directories at once.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p dir1/dir2/dir3</span><br><span class="line">$ <span class="built_in">cd</span> dir1/dir2/dir3</span><br><span class="line">~/Desktop/Linux/dir1/dir2/dir3$</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>rmdir</strong>: The rmdir(remove directories) is used to remove <em>empty</em> directories. Can be used to delete multiple empty directories as well. Safer to use compared to <code>rm -r FolderName</code>. This command can also be forced to delete non-empty directories.</p>
+<ol>
+<li>Remove empty directory:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir FolderName</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Remove multiple directories:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir FolderName1 FolderName2 FolderName3</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>Remove non-empty directories:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir FolderName1 --ignore-fail-on-non-empty</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>Remove entire directory tree. This command is similar to <code>rmdir a/b/c a/b a</code>:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rmdir -p a/b/c</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>rm</strong>: The rm(remove) command is used to remove objects such as files, directories, symbolic links etc from the file system.</p>
+<ol>
+<li>Remove file: The rm command is used to remove or delete a file<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm file_name</span><br></pre></td></tr></table></figure></li>
+<li>Remove file forcefully: The rm command with -f option is used for removal of file without prompting for confirmation.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -f filename</span><br></pre></td></tr></table></figure></li>
+<li>Remove directory: The rm command with -r option is used to remove the directory and its contents recursively.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r myDir</span><br></pre></td></tr></table></figure></li>
+<li>Remove directory forcefully: The rm command with -rf option is used to forcefully remove directory recursively.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf myDir</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><strong>touch</strong>: The touch command is is used to create, change and modify timestamps of a file without any content.</p>
+<ol>
+<li><p><strong>Create a new file:</strong> You can create a single file at a time using touch command. The file created is an empty file.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch file_name</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Create multiple files:</strong> You can create the multiple numbers of files at the same time.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch file1_name file2_name file3_name</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Change access time:</strong> The touch command with <code>a</code> option is used to change the access time of a file.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch -a file_name</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Change modification time:</strong> The touch command with <code>m</code> option is used to change the modified time.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch -m file_name</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Use timestamp of other file:</strong> The touch command with <code>r</code> option is used to get timestamp of another file.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch -r file2 file1</span><br></pre></td></tr></table></figure>
+<p> In the above example, we get the timestamp of file1 for file2.</p>
+</li>
+<li><p><strong>Create file with Specific time:</strong> The touch command with ‘t’ option is used to create a file with specified time.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch -t 1911010000 file_name</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><strong>cat</strong>: The cat command is used to create single or multiple files, view contain of file, concatenate files and redirect output in terminal or files.</p>
+<ol>
+<li><p><strong>View file contents:</strong> You can view contents of a single or more files by mentioning the filenames.</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat file_name1 file_name2</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<h3 id="File-permissions"><a href="#File-permissions" class="headerlink" title="File permissions"></a>File permissions</h3><p>Since Linux is a multi-user operating system, it is necessary to provide security to prevent people from accessing each other’s confidential files.<br>So Linux divides authorization into 2 levels,</p>
+<ol>
+<li><p><strong>Ownership:</strong><br>Each file or directory has assigned with 3 types of owners<br>i. <strong>User:</strong> Owner of the file who created it.<br>ii. <strong>Group:</strong> Group of users with the same access permissions to the file or directory.<br>iii. <strong>Other:</strong> Applies to all other users on the system</p>
+</li>
+<li><p><strong>Permissions:</strong><br>Each file or directory has following permissions for the above 3 types of owners.</p>
+<p> i.   <strong>Read:</strong> Give you the authority to open and read a file and lists its content for a directory.</p>
+<p> ii.  <strong>Write:</strong> Give you the authority to modify the contents of a file and add, remove and rename files stored in the directory.</p>
+<p> iii. <strong>Execute:</strong> Give you the authority to run the program in Unix/Linux.</p>
+<p>  The permissions are indicated with below characters,</p>
+<pre><code>  r = read permission
+
+  w = write permission
+
+  x = execute permission
+
+  \- = no permission
+</code></pre>
+<p> The above authorization levels represented in a diagram</p>
+<p> <img src="http://up.sofianehamlaoui.fr/perms.png"></p>
+</li>
+</ol>
+<p>There is a need to restrict own file/directory access to others.</p>
+<p><strong>Change access:</strong><br>The <code>chmod</code> command is used to change the access mode of a file.  This command is used to set permissions (read, write, execute) on a file/directory for the owner, group and the others group.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod [reference][operator][<span class="built_in">mode</span>] file...</span><br><span class="line"></span><br><span class="line">Example</span><br><span class="line">chmod ugo-rwx test.txt</span><br></pre></td></tr></table></figure>
+<p>There are 2 ways to use this command,</p>
+<ol>
+<li><p><strong>Absolute mode:</strong><br>The file permissions will be represented in a three-digit octal number.</p>
+<p>  The possible permissions types represented in a number format as below.</p>
+<table>
+<thead>
+<tr>
+<th>Permission Type</th>
+<th>Number</th>
+<th>Symbol</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>No Permission</td>
+<td>0</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Execute</td>
+<td>1</td>
+<td>–x</td>
+</tr>
+<tr>
+<td>Write</td>
+<td>2</td>
+<td>-w-</td>
+</tr>
+<tr>
+<td>Execute + Write</td>
+<td>3</td>
+<td>-wx</td>
+</tr>
+<tr>
+<td>Read</td>
+<td>4</td>
+<td>r–</td>
+</tr>
+<tr>
+<td>Read + Execute</td>
+<td>5</td>
+<td>r-x</td>
+</tr>
+<tr>
+<td>Read + Write</td>
+<td>6</td>
+<td>rw-</td>
+</tr>
+<tr>
+<td>Read + Write + Execute</td>
+<td>7</td>
+<td>rwx</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<p>Let’s update the permissions in absolute mode with an example as below,</p>
+   <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmode <span class="number">764</span> test.txt</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p><strong>Symbolic mode:</strong><br>In the symbolic mode, you can modify permissions of a specific owner unlike absolute mode.</p>
+<p> The owners are represented as below,</p>
+<table>
+<thead>
+<tr>
+<th>Owner</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>u</td>
+<td>user/owner</td>
+</tr>
+<tr>
+<td>g</td>
+<td>group</td>
+</tr>
+<tr>
+<td>o</td>
+<td>other</td>
+</tr>
+<tr>
+<td>a</td>
+<td>all</td>
+</tr>
+</tbody></table>
+<p> and the list of mathematical symbols to modify the file permissions as follows,</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>+</td>
+<td>Adds permission</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Removes the permission</td>
+</tr>
+<tr>
+<td>=</td>
+<td>Assign the permission</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<p><strong>Changing Ownership and Group:</strong><br>It is possible to change the the ownership and group of a file/directory using <code>chown</code> command.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chown user filename</span><br><span class="line">chown user:group filename</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">chown</span> <span class="title">John</span> <span class="title">test.txt</span></span></span><br><span class="line"><span class="function"><span class="title">chown</span> <span class="title">John:Admin</span> <span class="title">test.txt</span></span></span><br></pre></td></tr></table></figure>
+<p><strong>Change group-owner only:</strong><br>Sometimes you may need to change group owner only. In this case, chgrp command need to be used</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chgrp group_name filename</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">sudo</span> <span class="title">chgrp</span> <span class="title">Administrator</span> <span class="title">test.txt</span></span></span><br></pre></td></tr></table></figure>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<h3 id="Networking"><a href="#Networking" class="headerlink" title="Networking"></a>Networking</h3><ol>
+<li> <strong>Display network information:</strong> <code>ifconfig</code> command is used to display all network information(ip address, ports etc)</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig -a</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><p><strong>Test connection to a remote machine:</strong> Send an echo request to test connection of a remote machine.</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ping</span> &lt;ip-address&gt; or hostname</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">ping</span> 10.0.0.11</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Show IP Address:</strong> Display ip address of a currennt machine</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hostname -I</span><br><span class="line">(OR)</span><br><span class="line">ip addr show</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Active ports:</strong> Shows active or listening ports</p>
+  <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -pnltu</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>Find information about domain:</strong> <code>whois</code> command is used to find out information about a domain, such as the owner of the domain, the owner’s contact information, and the nameservers used by domain.</p>
+ <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">whois [domain]</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">whois</span> <span class="title">google.com</span></span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<h3 id="Installing-packages"><a href="#Installing-packages" class="headerlink" title="Installing packages"></a>Installing packages</h3><ol>
+<li><strong>Install package:</strong></li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install package_name</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>Package description:</strong><br>The info command is used to display brief details about a package.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum info package_name</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><strong>Uninstall package:</strong><br>The remove command is used to remove or uninstall package name.<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove package_name</span><br></pre></td></tr></table></figure></li>
+<li><strong>Install package from local file:</strong></li>
+</ol>
+<p>It is also possible to install package from local file named package_name.rpm.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -i package_name.rpm</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li><strong>Install from source code:</strong></li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf sourcecode.tar.gz</span><br><span class="line"><span class="built_in">cd</span> sourcecode</span><br><span class="line">./configure</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<h3 id="Disk-usage"><a href="#Disk-usage" class="headerlink" title="Disk usage"></a>Disk usage</h3><ol>
+<li> <strong>Synopsis:</strong> <code>du</code> command is used to check the information of disk usage of files and directories on a machine</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du [OPTION]... [FILE]...</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li> <strong>Disk usage of a directory:</strong> To find out the disk usage summary of a /home/ directory tree and each of its sub directories</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du  /home/</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li> <strong>Disk usage in human readable format:</strong> To find out the disk usage in human readable format</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du  -h /home/</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li> <strong>Total disk usage of a directory:</strong> To find out the total disk usage</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du  -sh /home/</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li> <strong>Total disk usage of all files and directories:</strong> To find out the total disk usage of files and directories</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du  -ah /home/</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li> <strong>Total disk usage of all files and directories upto certain depth:</strong> print the total for a directory only if it is N or fewer levels below the command</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du  -ah --max-depth <span class="number">2</span> /home/</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li> <strong>Total disk usage with excluded files:</strong> To find out the total disk usage of files and directories, but excludes the files that matches given pattern.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du -ah --exclude=&quot;*.txt&quot; /home/</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li> <strong>Help:</strong> This command gives information about <code>du</code></li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">du  --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<h3 id="System-and-Hardware-information"><a href="#System-and-Hardware-information" class="headerlink" title="System and Hardware information"></a>System and Hardware information</h3><ol>
+<li> <strong>Print all information</strong>: <code>uname</code> is mainly used to print system information.</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ uname -a</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li> <strong>Print kernel name</strong>:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ uname -s</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li> <strong>Print kernel release</strong>:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ uname -r</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li> <strong>Print Architecture</strong>:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ uname -m</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li> <strong>Print Operating System</strong>:</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ uname -o</span><br></pre></td></tr></table></figure>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<h3 id="Search-Files"><a href="#Search-Files" class="headerlink" title="Search Files"></a>Search Files</h3><ol>
+<li><strong>Pattern search:</strong><br>The <code>grep</code> command is used to search patterns in files.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">grep pattern files</span><br><span class="line">grep -i // Case sensitive</span><br><span class="line">grep -r // Recursive</span><br><span class="line">grep -v // Inverted search</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">grep</span> &quot;^<span class="title">hello</span>&quot; <span class="title">test.txt</span> // <span class="title">Hello</span> <span class="title">John</span></span></span><br><span class="line"><span class="function"><span class="title">grep</span> -<span class="title">i</span> &quot;<span class="title">hELLo</span>&quot; <span class="title">text.txt</span> // <span class="title">Hello</span> <span class="title">John</span></span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li><strong>Find files and directories:</strong></li>
+</ol>
+<p>The <code>find</code> command is used to find or search files and directories by file name, folder name, creation date, modification date, owner and permissions etc and perform subsequent operations on them.</p>
+<p>i. <strong>Search file with name:</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./directory_name -name file_name</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">find</span> ./<span class="title">test</span> -<span class="title">name</span> <span class="title">test.txt</span> // ./<span class="title">test</span>/<span class="title">test.txt</span></span></span><br></pre></td></tr></table></figure>
+<p>ii. <strong>Search file with pattern:</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./directory_name -name file_pattern</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">find</span> ./<span class="title">test</span> -<span class="title">name</span> *.<span class="title">txt</span> // ./<span class="title">test</span>/<span class="title">test.txt</span></span></span><br></pre></td></tr></table></figure>
+<p>iii. <strong>Search file with executable action:</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./directory_name -name file_name -exec command</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">find</span> ./<span class="title">test</span> -<span class="title">name</span> <span class="title">test.txt</span> -<span class="title">exec</span> <span class="title">rm</span> -<span class="title">i</span> &#123;&#125; \; // <span class="title">Search</span> <span class="title">file</span> <span class="title">and</span> <span class="title">delete</span> <span class="title">it</span> <span class="title">after</span> <span class="title">confirmation</span></span></span><br></pre></td></tr></table></figure>
+<p>iv. <strong>Search for empty files or directories:</strong></p>
+<p>The find command is used to search all empty folders and files in the entered directory or sub-directories.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./directory_name -empty</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">find</span> ./<span class="title">test</span> -<span class="title">empty</span></span></span><br><span class="line"><span class="function">//./<span class="title">test</span>/<span class="title">test1</span></span></span><br><span class="line"><span class="function">//./<span class="title">test</span>/<span class="title">test2</span></span></span><br><span class="line"><span class="function">//./<span class="title">test</span>/<span class="title">test1.txt</span></span></span><br></pre></td></tr></table></figure>
+<p>v. <strong>Search for files with permissions:</strong></p>
+<p>The find command is used to find all the files in the mentioned directory or sub-directory with the given permissions</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./directory_name -perm permission_code</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">find</span> ./<span class="title">test</span> -<span class="title">perm</span> 664</span></span><br></pre></td></tr></table></figure>
+<p>vi. <strong>Search text within multiple files:</strong></p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span> ./ -<span class="built_in">type</span> f -name file_pattern -exec grep some_text  &#123;&#125; \;</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">find</span> ./ -<span class="title">type</span> <span class="title">f</span> -<span class="title">name</span> &quot;*.<span class="title">txt</span>&quot; -<span class="title">exec</span> <span class="title">grep</span> &#x27;<span class="title">World</span>&#x27;  &#123;&#125; \; // <span class="title">Hello</span> <span class="title">World</span></span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><strong>Whereis to locate binary or source files for a command:</strong><br>The whereis command in Linux is used to locate the binary, source, and manual page files for a command. i.e, It is used to It is used to find executables of a program, its man pages and configuration files.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">whereis command_name</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">whereis</span> <span class="title">netstat</span> //<span class="title">netstat</span>:  /<span class="title">bin</span>/<span class="title">netstat</span> /<span class="title">usr</span>/<span class="title">share</span>/<span class="title">man</span>/<span class="title">man8</span>/<span class="title">netstat</span>.8.<span class="title">gz</span>(<span class="title">i.e</span>, <span class="title">executable</span> <span class="title">and</span> <span class="title">location</span> <span class="title">of</span> <span class="title">its</span> <span class="title">man</span> <span class="title">page</span>)</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><strong>Locate to find files:</strong><br>The locate command is used to find the files by name. This command is faster compared to find command because it searches database for the filename instead of searching your filesystem.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">locate [OPTION] PATTERN</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">locate</span> &quot;*.<span class="title">txt</span>&quot; -<span class="title">n</span> 10 // 10 <span class="title">file</span> <span class="title">search</span> <span class="title">results</span> <span class="title">ending</span> <span class="title">with</span> .<span class="title">txt</span> <span class="title">extension</span></span></span><br></pre></td></tr></table></figure>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><p>SSH (Secure Shell) is a network protocol that enables secure remote connections between two systems.</p>
+<ol>
+<li> <strong>Connect remote machine using IP address or machine name:</strong> The remote server can be connected with local user name using either host name or IP address</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh &lt;host-name&gt; or &lt;ip-address&gt;</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">ssh</span> 192.111.66.100</span></span><br><span class="line"><span class="function"><span class="title">ssh</span> <span class="title">test.remoteserver.com</span></span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li> <strong>Connect remote machine using username:</strong> It is also possible specify a user for an SSH connection.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh username@hostname_or_ip-address</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">ssh</span> <span class="title">john</span>@192.0.0.22</span></span><br><span class="line"><span class="function"><span class="title">ssh</span> <span class="title">john</span>@<span class="title">test.remoteserver.com</span></span></span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li> <strong>:Connect remote machine using custom port</strong> By default, the SSH server listens for a connection on port 22. But you can also specify the custom port.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh &lt;host-name&gt; or &lt;ip-address&gt; -p port_number</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">ssh</span> <span class="title">test.remoteserver.com</span> -<span class="title">p</span> 3322</span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li> <strong>Generate SSH keys using keygen:</strong> SSH Keygen is used to generate a key pair which consists of public and private keys to improve the security of SSH connections.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li> <strong>Copying SSH keys to servers:</strong> For SSH authentication, <code>ssh-copy-id</code> command will be used to copy public key(id_rsa.pub) to server.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="built_in">copy</span>-id hostname_or_IP</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li> <strong>Copy a File Remotely over SSH:</strong> SCP tool is used to securely copy files over the SSH protocol.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scp fileName user@remotehost:destinationPath</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">scp</span> <span class="title">test.txt</span> <span class="title">test</span>@10.0.0.64:/<span class="title">home</span>/<span class="title">john</span>/<span class="title">Desktop</span></span></span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li> <strong>Edit SSH Config File</strong> SSH server options customized by editing the settings in <code>sshd_config</code> file.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+<ol start="8">
+<li> <strong>Run commands on a remote server</strong> SSH commands can be executed on remote machine using the local machine.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh test.remoteserver.com <span class="built_in">mkdir</span> NewDirectoryName // Creating directory on remote machine</span><br></pre></td></tr></table></figure>
+<ol start="9">
+<li> <strong>Restart SSH service:</strong> You need to restart the service in Linux after making changes to SSH configuration.</li>
+</ol>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ssh service restart</span><br><span class="line">(or)</span><br><span class="line">sudo sshd service restart</span><br></pre></td></tr></table></figure>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<h3 id="Vi-Vim-commands"><a href="#Vi-Vim-commands" class="headerlink" title="Vi/Vim-commands"></a>Vi/Vim-commands</h3><p>Vi editor is the most popular text editor from the early days of Unix. Whereas Vim(Vi IMproved) is an improved version of vi editor to be used in CLI (command line interface) for mainly text editing tasks in many configuration files. Some of the other alternatives are Elvis, Nvi, Nano, Joe, and Vile.<br>It has two main operation modes,</p>
+<ol>
+<li> <strong>Command Mode:</strong> It allows the entry of commands to manipulate text.</li>
+<li> <strong>Entry mode(Or Insert mode):</strong> It allows typed characters on the keyboard into the current file.</li>
+</ol>
+<h4 id="1-Start-with-Vi-Editor"><a href="#1-Start-with-Vi-Editor" class="headerlink" title="1. Start with Vi Editor"></a>1. Start with Vi Editor</h4><p>You can create a new file or open an existing file using <code>vi filename</code> command.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi &lt;filename_NEW&gt; or &lt;filename_EXISTING&gt; // Create a new file or open an existing file</span><br><span class="line"></span><br><span class="line"><span class="function">Example:</span></span><br><span class="line"><span class="function"><span class="title">vi</span> <span class="title">first.txt</span></span></span><br></pre></td></tr></table></figure>
+<p>Let’s see how do you create file, enter the content and leave the CLI by saving the changes.</p>
+<ol>
+<li> Create a new file named <code>first.txt</code></li>
+<li> Press <code>i</code> to enter the insert mode</li>
+<li> Enter the text “Hello World!”</li>
+<li> Save the text and exit by pressing <code>:wq!</code> command</li>
+<li> Check the entered text</li>
+</ol>
+<h4 id="2-Cursor-movement"><a href="#2-Cursor-movement" class="headerlink" title="2. Cursor movement"></a>2. Cursor movement</h4><pre><code>These commands will be used in Command mode.
+</code></pre>
+<h5 id="Move-cursor"><a href="#Move-cursor" class="headerlink" title="Move cursor"></a>Move cursor</h5><p>You can use arrow keys(left, right, up and down) to move the cursor on the terminal. But you can also other keys for this behavior.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">h        # <span class="built_in">Move</span> left</span><br><span class="line">j        # <span class="built_in">Move</span> down</span><br><span class="line">k        # <span class="built_in">Move</span> up</span><br><span class="line">l        # <span class="built_in">Move</span> right</span><br></pre></td></tr></table></figure>
+<h5 id="Jump-one-word"><a href="#Jump-one-word" class="headerlink" title="Jump one word"></a>Jump one word</h5><p>These commands used to jump one word at a time</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">w        # Jump forwards to the <span class="built_in">start</span> of a word</span><br><span class="line">W        # Jump forwards to the <span class="built_in">start</span> of a WORD</span><br><span class="line">e        # Jump forwards to the <span class="built_in">start</span> of a word</span><br><span class="line">E        # Jump forwards to the <span class="built_in">start</span> of a WORD</span><br><span class="line">b        # Jump backwords to the <span class="built_in">start</span> of a word</span><br><span class="line">B        # Jump backwords to the <span class="built_in">start</span> of a WORD</span><br></pre></td></tr></table></figure>
+<h5 id="Jump-to-start-or-end-of-a-line-or-next-line"><a href="#Jump-to-start-or-end-of-a-line-or-next-line" class="headerlink" title="Jump to start or end of a line or next line"></a>Jump to start or end of a line or next line</h5><p>These commands used to jump starting or ending of a line or a next line.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">^        # Jump to the <span class="built_in">start</span> of a current line</span><br><span class="line">$        # Jump to the end of a current line</span><br><span class="line">return   # Jump to the <span class="built_in">start</span> of a next line</span><br></pre></td></tr></table></figure>
+<h5 id="Move-sides"><a href="#Move-sides" class="headerlink" title="Move sides"></a>Move sides</h5><p>These commands used to moves all sides of the screen</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Backspace # <span class="built_in">Move</span> cursor one character to the left</span><br><span class="line">Spacebar  # <span class="built_in">Move</span> cursor one character to the right</span><br><span class="line">H(High)   # <span class="built_in">Move</span> cursor to the top of the screen</span><br><span class="line">M(Middle) # <span class="built_in">Move</span> cursor to the middle of the screen</span><br><span class="line">L(Low)    # <span class="built_in">Move</span> cursor to the bottom of the screen</span><br></pre></td></tr></table></figure>
+<h5 id="Paging-and-Scrolling"><a href="#Paging-and-Scrolling" class="headerlink" title="Paging and Scrolling"></a>Paging and Scrolling</h5><p>Paging is used to moves the cursor up or down through the text a full screen at a time. Whereas Scrolling happens line by line.</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Ctrl + f     # <span class="built_in">move</span> forward one full screen</span><br><span class="line">Ctrl + b     # <span class="built_in">move</span> backward one full screen</span><br><span class="line">Ctrl + d     # <span class="built_in">move</span> forward half a screen</span><br><span class="line">Ctrl + u     # <span class="built_in">move</span> backward half a screen</span><br></pre></td></tr></table></figure>
+<h5 id="Inserting-Text"><a href="#Inserting-Text" class="headerlink" title="Inserting Text"></a>Inserting Text</h5><p>These commands places vi in entry mode from command mode. First, you need to be in command mode to use the below commands.</p>
+<h6 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h6><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i    # Insert text to the left of the cursor</span><br><span class="line">I    # Insert text <span class="built_in">at</span> the beginning of a line</span><br><span class="line">ESC  # <span class="keyword">Exit</span> insert <span class="built_in">mode</span></span><br></pre></td></tr></table></figure>
+<h6 id="Append"><a href="#Append" class="headerlink" title="Append"></a>Append</h6><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a    # Insert(or <span class="built_in">Append</span>) text to the right of the cursor</span><br><span class="line">A    # Insert(or <span class="built_in">Append</span>) text <span class="built_in">at</span> the end of a line</span><br></pre></td></tr></table></figure>
+<h6 id="Open-a-line"><a href="#Open-a-line" class="headerlink" title="Open a line"></a>Open a line</h6><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">o    # Open a line below the current cursor position</span><br><span class="line">O    # open a line above the current cursor position</span><br></pre></td></tr></table></figure>
+<h5 id="Editing-Text"><a href="#Editing-Text" class="headerlink" title="Editing Text"></a>Editing Text</h5><h5 id="Deleting-Text"><a href="#Deleting-Text" class="headerlink" title="Deleting Text"></a>Deleting Text</h5><h5 id="Cut-Copy-amp-Paste"><a href="#Cut-Copy-amp-Paste" class="headerlink" title="Cut, Copy &amp; Paste"></a>Cut, Copy &amp; Paste</h5><h5 id="Exiting"><a href="#Exiting" class="headerlink" title="Exiting"></a>Exiting</h5><pre><code>These commands are used to exit from the file.
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">:w	    # Write (save) the file, but don&#x27;t <span class="keyword">exit</span></span><br><span class="line">:wq	    # Write (save) and quit</span><br><span class="line">:wq!	# Force write (save) and quit</span><br><span class="line">:q	    # Quit, but it fails <span class="keyword">if</span> anything has changed</span><br><span class="line">:q!	    # Quit and throw away <span class="keyword">for</span> any changes</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/Projects/">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-Commands-101"><span class="toc-number">1.</span> <span class="toc-text">Linux Commands : 101</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Table-of-Contents"><span class="toc-number">1.0.1.</span> <span class="toc-text">Table of Contents</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#User-Information"><span class="toc-number">1.0.2.</span> <span class="toc-text">User Information</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File-and-directory-commands"><span class="toc-number">1.0.3.</span> <span class="toc-text">File and directory commands</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File-permissions"><span class="toc-number">1.0.4.</span> <span class="toc-text">File permissions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Networking"><span class="toc-number">1.0.5.</span> <span class="toc-text">Networking</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Installing-packages"><span class="toc-number">1.0.6.</span> <span class="toc-text">Installing packages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Disk-usage"><span class="toc-number">1.0.7.</span> <span class="toc-text">Disk usage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System-and-Hardware-information"><span class="toc-number">1.0.8.</span> <span class="toc-text">System and Hardware information</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Search-Files"><span class="toc-number">1.0.9.</span> <span class="toc-text">Search Files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH"><span class="toc-number">1.0.10.</span> <span class="toc-text">SSH</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vi-Vim-commands"><span class="toc-number">1.0.11.</span> <span class="toc-text">Vi&#x2F;Vim-commands</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Start-with-Vi-Editor"><span class="toc-number">1.0.11.1.</span> <span class="toc-text">1. Start with Vi Editor</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Cursor-movement"><span class="toc-number">1.0.11.2.</span> <span class="toc-text">2. Cursor movement</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Move-cursor"><span class="toc-number">1.0.11.2.1.</span> <span class="toc-text">Move cursor</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Jump-one-word"><span class="toc-number">1.0.11.2.2.</span> <span class="toc-text">Jump one word</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Jump-to-start-or-end-of-a-line-or-next-line"><span class="toc-number">1.0.11.2.3.</span> <span class="toc-text">Jump to start or end of a line or next line</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Move-sides"><span class="toc-number">1.0.11.2.4.</span> <span class="toc-text">Move sides</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Paging-and-Scrolling"><span class="toc-number">1.0.11.2.5.</span> <span class="toc-text">Paging and Scrolling</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Inserting-Text"><span class="toc-number">1.0.11.2.6.</span> <span class="toc-text">Inserting Text</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#Insert"><span class="toc-number">1.0.11.2.6.1.</span> <span class="toc-text">Insert</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Append"><span class="toc-number">1.0.11.2.6.2.</span> <span class="toc-text">Append</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#Open-a-line"><span class="toc-number">1.0.11.2.6.3.</span> <span class="toc-text">Open a line</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Editing-Text"><span class="toc-number">1.0.11.2.7.</span> <span class="toc-text">Editing Text</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Deleting-Text"><span class="toc-number">1.0.11.2.8.</span> <span class="toc-text">Deleting Text</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Cut-Copy-amp-Paste"><span class="toc-number">1.0.11.2.9.</span> <span class="toc-text">Cut, Copy &amp; Paste</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Exiting"><span class="toc-number">1.0.11.2.10.</span> <span class="toc-text">Exiting</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://blog.sofianehamlaoui.fr/2021/01/31/linux/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&text=Linux Commands"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&title=Linux Commands"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&is_video=false&description=Linux Commands"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux Commands&body=Check out this article: http://blog.sofianehamlaoui.fr/2021/01/31/linux/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&title=Linux Commands"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&title=Linux Commands"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&title=Linux Commands"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&title=Linux Commands"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&name=Linux Commands&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://blog.sofianehamlaoui.fr/2021/01/31/linux/&t=Linux Commands"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    Sofiane Hamlaoui
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/Projects/">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
